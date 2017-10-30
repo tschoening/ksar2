@@ -11,9 +11,9 @@
 **********************************************************
 
 
-Site: http://ksar.atomique.net/
-Author: Alexandre CHERIF
-Licence : BSD Like
+Site:    https://github.com/ppalucha/ksar2/
+Author:  Pawel Palucha
+Licence: BSD 3-Clause License
 
 
 Minimum Requirements:
@@ -32,7 +32,7 @@ RUNNING THE GUI:
 
     * GUI and collect : java -jar kSar-x.x.x.jar -input 'ssh:// or file:// or cmd://'
         eg. : java -jar kSar-x.x.x.jar -input 'cmd:///usr/bin/sar -f /tmp/mysar.file'
-        
+
 
 RUNNING ON THE COMMAND LINE:
 
@@ -48,7 +48,7 @@ GETTING THE HELP
 
 USING SHORTCUT XML
 
-    You can make template of data collection via XML (see contrib/shortcut.xml). This shortcut can be open
+    You can make template of data collection via XML (see docs/Shortcut.xml). This shortcut can be open
     with (-startup or -wizard cf. upper)
 
     * Replace current shortcut
@@ -57,21 +57,8 @@ USING SHORTCUT XML
     * Add some shortcut
         java -jar kSar-x.x.x.jar -addShortcut newxml_shortcut_file.xml
 
-    
+
 ADMIN STUFF:
 
     * Clear all the preferences
         java -jar kSar-x.x.x.jar -ClearAllPrefs
-
-
-
-NOTES:
-    if you are running on solaris, and want more system statistics you can see 
-        Esar (http://esar.atomique.net)
-
-
-        
-    
-
-
-
