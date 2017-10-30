@@ -67,7 +67,7 @@ public class GlobalOptions {
             } catch (ClassNotFoundException ex) {
                 ex.printStackTrace();
             }
-            
+
         }
         for (String parsername : ParserMap.keySet()) {
             is = this.getClass().getResourceAsStream("/" + parsername + ".xml");
@@ -121,8 +121,6 @@ public class GlobalOptions {
         ColumnConfig tmp = columnlist.get(s);
         if (tmp != null) {
             return tmp.getData_color();
-        } else {
-            System.err.println("WARN: color not found for tag " + s);
         }
         return null;
     }
@@ -199,7 +197,7 @@ public class GlobalOptions {
         saveHistory();
     }
 
-    
+
 
     public static void saveHistory() {
         File tmpfile = null;

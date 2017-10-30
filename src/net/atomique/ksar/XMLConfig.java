@@ -37,7 +37,7 @@ public class XMLConfig extends DefaultHandler {
 
     public XMLConfig(String filename) {
         load_config(filename);
-        
+
     }
 
     public XMLConfig(InputStream is) {
@@ -58,7 +58,7 @@ public class XMLConfig extends DefaultHandler {
             // If nothing found, null is returned, for normal processing
             return inputSource;
         }
-    
+
     public void load_config(InputStream is) {
         SAXParserFactory fabric = null;
         SAXParser parser = null;
@@ -161,7 +161,7 @@ public class XMLConfig extends DefaultHandler {
         if ( "HostInfo".equals(qName)) {
             in_hostinfo=true;
         }
-        
+
         // COLORS
         if (in_colors) {
             if ("itemcolor".equals(qName)) {
@@ -270,7 +270,7 @@ public class XMLConfig extends DefaultHandler {
         if ("HostInfo".equals(qName)) {
             in_hostinfo = false;
         }
-        
+
 
 
         if (currentStat != null) {
@@ -284,7 +284,7 @@ public class XMLConfig extends DefaultHandler {
                 currentStat.setDuplicateTime(tempval);
             }
         }
-        
+
         if ("cols".equals(qName)) {
             if (currentPlot != null) {
                 currentPlot.setHeaderStr(tempval);
@@ -306,11 +306,14 @@ public class XMLConfig extends DefaultHandler {
 
 
         if ("itemcolor".equals(qName)) {
-            if (currentColor.is_valid()) {
-                GlobalOptions.getColorlist().put(currentColor.getData_title(), currentColor);
-            } else {
-                System.err.println("Err: " + currentColor.getError_message());
-                currentColor = null;
+            if (!currentColor.is_empty())
+            {
+                if (currentColor.is_valid()) {
+                    GlobalOptions.getColorlist().put(currentColor.getData_title(), currentColor);
+                } else {
+                    System.err.println("Err: " + currentColor.getError_message());
+                    currentColor = null;
+                }
             }
             in_color = false;
         }
@@ -351,7 +354,7 @@ public class XMLConfig extends DefaultHandler {
         }
     }
 
-    
+
     public boolean beenparse = false;
     private String tempval;
     private boolean in_color = false;
@@ -370,6 +373,6 @@ public class XMLConfig extends DefaultHandler {
     private CnxHistory currentCnx = null;
     private HostInfo currentHost = null;
 
-    
+
 }
 
