@@ -29,6 +29,7 @@ public class ColumnConfig {
                 Integer blue = new Integer(color_indices[2]);
                 this.data_color = new Color(red, green, blue);
             } catch (NumberFormatException ee) {
+                error_message = ee.getMessage();
             }
         }
     }
@@ -57,7 +58,7 @@ public class ColumnConfig {
     public int getType() {
         return type;
     }
-    
+
     public boolean is_valid() {
         if (data_title == null) {
             error_message = "Column header name not found";
@@ -72,6 +73,13 @@ public class ColumnConfig {
             return false;
         }
         return true;
+    }
+
+    public boolean is_empty() {
+        if ((data_colorstr == null) && (data_color == null)) {
+            return true;
+        }
+        return false;
     }
 
     public String getError_message() {
